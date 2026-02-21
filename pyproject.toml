@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 # ── Project metadata (PEP 621) ────────────────────────────────────────────────
 [project]
 name            = "defenx-nlp"
-version         = "0.1.2"
+version         = "0.2.0"
 description     = "Semantic NLP intelligence toolkit — encoding, embeddings, GPU/CPU device handling, and reusable inference interfaces."
 readme          = "README.md"
 license         = { file = "LICENSE" }
@@ -21,7 +21,7 @@ keywords = [
 ]
 
 classifiers = [
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
