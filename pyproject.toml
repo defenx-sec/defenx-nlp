@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# ── Project metadata (PEP 621) ────────────────────────────────────────────────
+[project]
+name            = "defenx-nlp"
+version         = "0.1.0"
+description     = "Semantic NLP intelligence toolkit — encoding, embeddings, GPU/CPU device handling, and reusable inference interfaces."
+readme          = "README.md"
+license         = { file = "LICENSE" }
+requires-python = ">=3.9"
+
+authors = [
+    { name = "DEFENX", email = "defenx@zohomail.in" },
+]
+
+keywords = [
+    "nlp", "sentence-transformers", "embeddings", "semantic-search",
+    "cuda", "pytorch", "anomaly-detection", "behavioral-analytics",
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+    "Operating System :: OS Independent",
+]
+
+# ── Core dependencies ─────────────────────────────────────────────────────────
+dependencies = [
+    "numpy>=1.24",
+    "sentence-transformers>=2.2.0",
+    # torch is intentionally NOT pinned here — let the user install their
+    # preferred variant (CPU / CUDA 11 / CUDA 12 / ROCm) via the extras below.
+    "torch>=2.0",
+]
+
+# ── Optional extras ───────────────────────────────────────────────────────────
+[project.optional-dependencies]
+# CUDA torch cannot be specified via extras (it ships from a separate index URL).
+# Install manually with:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+# The cpu extra just ensures a CPU-only torch is present if the user has no GPU.
+cpu = ["torch>=2.0"]
+# pip install defenx-nlp[dev]
+dev    = ["pytest>=7.4", "pytest-cov", "ruff", "mypy", "twine", "build"]
+# pip install defenx-nlp[docs]
+docs   = ["mkdocs>=1.5", "mkdocs-material>=9.0"]
+
+[project.urls]
+Homepage    = "https://github.com/defenx-sec/defenx-nlp"
+Repository  = "https://github.com/defenx-sec/defenx-nlp"
+Issues      = "https://github.com/defenx-sec/defenx-nlp/issues"
+Changelog   = "https://github.com/defenx-sec/defenx-nlp/blob/main/CHANGELOG.md"
+
+# ── Package discovery ─────────────────────────────────────────────────────────
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["defenx_nlp*"]
+
+# ── Ruff linting ──────────────────────────────────────────────────────────────
+[tool.ruff]
+line-length    = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+# ── Mypy type checking ────────────────────────────────────────────────────────
+[tool.mypy]
+python_version         = "3.9"
+ignore_missing_imports = true
+strict                 = false
+
+# ── Pytest ────────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths    = ["tests"]
+addopts      = "-v --tb=short"
+filterwarnings = ["ignore::UserWarning"]
