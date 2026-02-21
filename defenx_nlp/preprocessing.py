@@ -79,7 +79,7 @@ def remove_special_chars(
     if keep_punct and keep_digits:
         return re.sub(r"[^\w\s.!?,;:'\"()-]", "", text)
     if keep_punct:
-        return re.sub(r"[^\D\s.!?,;:'\"()-]", "", text)
+        return re.sub(r"[^a-zA-Z\s.!?,;:'\"()-]", "", text)
     if keep_digits:
         return re.sub(r"[^\w\s]", "", text)
     return re.sub(r"[^a-zA-Z\s]", "", text)

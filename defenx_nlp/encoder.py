@@ -127,7 +127,8 @@ class SemanticEncoder(BaseEncoder):
         """Thread-safe model-load gate."""
         if self._model is None:
             with self._lock:
-                self._load_model()   # double-checked inside lock
+                if self._model is None:   # double-checked inside lock
+                    self._load_model()
 
     # ── public API ────────────────────────────────────────────────────────────
 
