@@ -5,8 +5,7 @@ defenx-nlp — Semantic NLP Intelligence Toolkit
 A domain-agnostic Python library for semantic sentence encoding,
 embedding generation, and GPU/CPU-aware inference interfaces.
 
-Designed to be extracted from the DEFENX NeuroSight Artificial Brain
-Cognitive Simulator and used independently in:
+Designed to be used independently in:
 
   * NLP classification systems
   * Anomaly detection pipelines

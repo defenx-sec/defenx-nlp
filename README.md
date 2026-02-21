@@ -2,7 +2,6 @@
 
 **Semantic NLP Intelligence Toolkit**
 
-> Extracted from *DEFENX NeuroSight — Artificial Brain Cognitive Simulator*.
 > A domain-agnostic library for semantic sentence encoding, embedding generation,
 > GPU/CPU-aware device handling, and reusable inference interfaces.
 
@@ -14,8 +13,7 @@
 
 ## Overview
 
-`defenx-nlp` provides the intelligence layer that powers DEFENX NeuroSight, packaged
-as a standalone, pip-installable library. It is designed to be **domain-agnostic** so
+`defenx-nlp` is a standalone, pip-installable semantic NLP library. It is designed to be **domain-agnostic** so
 the same encoder that understands human chat intent can be repurposed for:
 
 | Use case | What you embed |
