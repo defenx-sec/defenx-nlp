@@ -46,7 +46,7 @@ pip install torch --index-url https://download.pytorch.org/whl/cu128
 ### Development install (editable + test tools)
 
 ```bash
-git clone https://github.com/defenx/defenx-nlp.git
+git clone https://github.com/defenx-sec/defenx-nlp.git
 cd defenx-nlp
 pip install -e ".[dev]"
 ```
